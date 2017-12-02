@@ -6,14 +6,6 @@
 #include <errno.h>
 #include "logger.h"
 
-#if 0
-enum {
-    DEBUG_LEVEL,
-    INFO_LEVEL,
-    ERROR_LEVEL
-};
-#endif
-
 #define DEFAULT_LOG_LEVEL INFO_LEVEL
 
 FILE *log_fp = NULL;
@@ -63,49 +55,3 @@ void logger_set_log_level(int log_level)
         global_log_level = log_level;
     }
 }
-
-#if 0
-#define write_log_file(format, args...) \
-{ \
-    fprintf(log_fp, "[%s %s] ", __DATE__, __TIME__); \
-    fprintf(log_fp, "[file: %s, line: %d, function: %s] ", __FILE__, __LINE__, __FUNCTION__); \
-    fprintf(log_fp, format, args); \
-    fprintf(log_fp, "\n"); \
-    fflush(log_fp); \
-} 
-
-#define logger_debug_log(format, args...) \
-{ \
-    if (global_log_level == DEBUG_LEVEL) { \
-        fprintf(log_fp, "[DEBUG] "); \
-        write_log_file(format, args); \
-    } \
-}
-
-#define logger_info_log(format, args...) \
-{ \
-    if (global_log_level <= INFO_LEVEL) { \
-        fprintf(log_fp, "[INFO] "); \
-        write_log_file(format, args); \
-    } \
-}
-
-#define logger_err_log(format, args...) \
-{ \
-    if (global_log_level <= ERROR_LEVEL) { \
-        fprintf(log_fp, "[ERROR] "); \
-        write_log_file(format, args); \
-    } \
-}
-
-int main(void)
-{
-    int ret = logger_set_conf_file("./hello");
-    logger_set_log_level(ERROR_LEVEL);
-    logger_debug_log("%s", "hello");
-    logger_info_log("%s", "hello");
-    logger_err_log("%s", "hello");
-
-    return 0;
-}
-#endif

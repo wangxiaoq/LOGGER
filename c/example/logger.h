@@ -36,7 +36,7 @@ void logger_set_log_level(int log_level);
 #define logger_info_log(format, args...) \
 { \
     if (global_log_level <= INFO_LEVEL) { \
-        fprintf(log_fp, "[INFO] "); \
+        fprintf(log_fp, "[INFO]  "); \
         write_log_file(format, args); \
     } \
 }
