@@ -18,7 +18,7 @@ LOGGER是一个Linux下通用的日志记录器，记录程序在执行过程中
 
 3. 在你的源代码中使用下面的接口进行初始化：
 
-    int logger_set_conf_file(const char *conf);
+    `int logger_set_conf_file(const char *conf);`
 
    logger_set_conf_file函数用来设置日志文件，参数@conf为路径名和日志文件名字，可以使用绝对路径和相对路径，例如：“/var/log/mylog”或者“./mylog”，对于参数@conf有以下三种情况：
 
@@ -32,7 +32,7 @@ LOGGER是一个Linux下通用的日志记录器，记录程序在执行过程中
 
 4. 使用下面的函数设置日志级别：
 
-    void logger_set_log_level(int log_level);
+    `void logger_set_log_level(int log_level);`
 
    日志有三种级别：
 
@@ -44,11 +44,11 @@ LOGGER是一个Linux下通用的日志记录器，记录程序在执行过程中
 
 5. 使用下面的宏保存日志信息到日志文件中：
 
-    logger_debug_log(char *format, ...);
+    `logger_debug_log(char *format, ...);`
 
-    logger_info_log(char *format, ...);
+    `logger_info_log(char *format, ...);`
 
-    logger_err_log(char *format, ...);
+    `logger_err_log(char *format, ...);`
 
    上面三个函数依次分别是打印调试信息、日常信息和错误信息。
 
