@@ -44,11 +44,11 @@ LOGGER是一个Linux下通用的日志记录器，记录程序在执行过程中
 
 5. 使用下面的宏保存日志信息到日志文件中：
 
-    `logger_debug_log(char *format, ...);`
+    `logger_debug_log(format, args...);`
 
-    `logger_info_log(char *format, ...);`
+    `logger_info_log(format, args...);`
 
-    `logger_err_log(char *format, ...);`
+    `logger_err_log(format, args...);`
 
    上面三个函数依次分别是打印调试信息、日常信息和错误信息。
 
